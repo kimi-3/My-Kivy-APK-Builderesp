@@ -1,14 +1,15 @@
 [app]
-title = appname#允许中文 Chinese allowed
-package.name = packagename
-package.domain = org.test#release模式不能用org.test org.test can't be used in release mode
-source.dir = .#工作目录 working directory
-source.include_exts = py,png,jpg,kv,atlas#需要打包的文件类型 file types to be packed
+title = 测试
+package.name = esp32
+package.domain = org.test
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
 #source.include_patterns = image/* 打包image目录下的文件 pack files in the image directory
 version = 0.0.1
 #fullscreen = 0
 #orientation = portrait
-requirements = python3,kivy,kivymd,libiconv,libffi#依赖库,后二为打包需要 the last two are needed for packaging
+# 【仅修改这一行】精简依赖：保留核心，移除多余的libiconv/libffi（p4a自动处理），补充pyjnius（KivyMD必需）
+requirements = python3,kivy,kivymd,pyjnius#依赖库，pyjnius为KivyMD运行必需，libiconv/libffi无需手动指定
 #icon.filename = icon.png
 #presplash.filename = presplash.png
 entrypoint = main.py#主程序 main
